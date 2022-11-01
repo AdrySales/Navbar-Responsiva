@@ -1,0 +1,98 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+/*____________________________________________   NAVBAR ______________________________________________________*/
+nav {
+
+    display: flex;
+    background-color: #9E0962;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 8vh; /*vh (view port hight) vai fazer com que se adapte a janela do user*/
+}
+
+.logo {
+    font-size : 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.nav-list{
+    list-style: none;
+    display:flex;
+}
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px; /*distancia um icone do outro*/
+}
+.menu-dinamico div{
+    width:32px;
+    height: 2px;
+    background-color: #1ADBEB;
+    margin:8px;
+}
+.menu-dinamico{
+    display:none;
+    cursor:pointer;
+}
+
+@media (max-width:999px){ /* navlist da responsividade*/
+    body{
+        overflow-x:hidden ; /*se algo trnasborda fica escondido do body, faz com que a navbar vertical fique escondida*/
+    }
+    .nav-list{
+        position:absolute;
+        top:8vh;
+        right:0;
+        width :50vw;
+        height:92vh;
+        background: #9E0962;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around; /*separa os itens da nav de acordo com o espaço que tem*/
+        transform: translate(100%); /*move toda a navbar vertical para fora da tela, para ela só aparecer quando for chamada*/
+        transition: transform 0.3s ease-in;
+    }
+    .nav-list li {
+        margin-left:0;
+      
+    }
+    .menu-dinamico{
+        display:block;
+    }
+   
+}
+
+.nav-list.active{
+    transform: translateX(0);
+}
+
+/*vai fazer os links da navbar vertical aparecerem devagar e vai mudar a opacidade das cores conforme o menu é ativado ou retraido*/
+@keyframes navLinkFade{
+    from{
+     opacity: 0;
+     transform: translateX(50px);
+    }to{
+     opacity: 1;
+     transform: translateX(0px);
+    }
+}
+/*____________________________________________   FONTES ______________________________________________________*/
+a {
+
+    color: #1ADBEB;
+    margin: auto 20px auto 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a:hover{ /* Faz com que quando tenha movimentacao em sima do a ele fique parcialmente opaco*/
+    opacity: 0.7;
+}
+
+
